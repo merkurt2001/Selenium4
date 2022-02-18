@@ -1,4 +1,4 @@
-package AdditonalyInfo;
+package InterstingInfo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.sukgu.Shadow;
@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class mercedes {
     public static void main(String[] args) {
