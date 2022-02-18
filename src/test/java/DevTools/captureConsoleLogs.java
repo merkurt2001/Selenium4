@@ -14,6 +14,16 @@ import org.openqa.selenium.devtools.v85.network.model.RequestId;
 import java.util.Optional;
 
 public class captureConsoleLogs {
+    /**
+     *
+     * Then, we add a listener to capture all the console logs logged by the application.
+     * For each log captured by the application we then extract the log text with getText()
+     * and log level with getLevel() methods.
+     *
+     *  While testing and working on an application with specific data or specific conditions,
+     *  logs help us in debugging and capturing the error messages, giving more insights
+     *  that are published in the Console tab of the Chrome DevTools.
+     */
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(); // not polymorphic way
