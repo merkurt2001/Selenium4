@@ -1,38 +1,46 @@
 package DevTools;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParser;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v85.log.Log;
-import org.openqa.selenium.devtools.v85.network.Network;
-import org.openqa.selenium.devtools.v85.network.model.RequestId;
-
-import java.util.Optional;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class captureConsoleLogs {
     /**
-     *
      * Then, we add a listener to capture all the console logs logged by the application.
      * For each log captured by the application we then extract the log text with getText()
      * and log level with getLevel() methods.
-     *
-     *  While testing and working on an application with specific data or specific conditions,
-     *  logs help us in debugging and capturing the error messages, giving more insights
-     *  that are published in the Console tab of the Chrome DevTools.
+     * <p>
+     * While testing and working on an application with specific data or specific conditions,
+     * logs help us in debugging and capturing the error messages, giving more insights
+     * that are published in the Console tab of the Chrome DevTools.
      */
-    public static void main(String[] args) {
+
+    DevTools devTools;
+    ChromeDriver driver;
+
+    @BeforeMethod
+    public void setUp() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver(); // not polymorphic way
+        driver = new ChromeDriver(); // not polymorphic way
         driver.manage().window().maximize();
-        DevTools devTools = driver.getDevTools();
+        devTools = driver.getDevTools();
 
         //Session of ChromeDevTool
         devTools.createSession();
+    }
 
+    @AfterMethod
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
+
+    @Test
+    public void consoleLogTest() {
         devTools.send(Log.enable());
         devTools.addListener(Log.entryAdded(),
                 logEntry -> {
@@ -44,3 +52,6 @@ public class captureConsoleLogs {
 
 
 }
+
+
+

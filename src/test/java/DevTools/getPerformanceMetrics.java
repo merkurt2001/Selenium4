@@ -6,6 +6,9 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v85.log.Log;
 import org.openqa.selenium.devtools.v85.performance.Performance;
 import org.openqa.selenium.devtools.v85.performance.model.Metric;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,15 +16,28 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class getPerformanceMetrics {
-    public static void main(String[] args) {
+    DevTools devTools;
+    ChromeDriver driver;
+
+    @BeforeMethod
+    public void setUp() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver(); // not polymorphic way
+        driver = new ChromeDriver(); // not polymorphic way
         driver.manage().window().maximize();
-        DevTools devTools = driver.getDevTools();
+        devTools = driver.getDevTools();
 
         //Session of ChromeDevTool
         devTools.createSession();
+    }
 
+    @AfterMethod
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
+
+    @Test
+    public void Test() {
         /*Next, we enable DevTools to capture the performance metrics by sending the Performance.enable()
         command to send() .*/
 

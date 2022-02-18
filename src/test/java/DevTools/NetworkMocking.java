@@ -6,20 +6,36 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v85.fetch.Fetch;
 import org.openqa.selenium.devtools.v85.network.Network;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.Optional;
 
 public class NetworkMocking {
 
-    public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver(); // not polymorphic way
-        driver.manage().window().maximize();
+    DevTools devTools;
+    ChromeDriver driver;
 
-        DevTools devTools = driver.getDevTools();
+    @BeforeMethod
+    public void setUp() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(); // not polymorphic way
+        driver.manage().window().maximize();
+        devTools = driver.getDevTools();
 
         //Session of ChromeDevTool
         devTools.createSession();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
+
+    @Test
+    public void Test() {
 
         devTools.send(Fetch.enable(Optional.empty(), Optional.empty()));
 
@@ -38,7 +54,7 @@ public class NetworkMocking {
 
         driver.get("https://rahulshettyacademy.com/angularAppdemo");
         driver.findElement(By.cssSelector("button[routerlink*='library']")).click();
-        Thread.sleep(3000);
+
         String p = driver.findElement(By.cssSelector("p")).getText();
         System.out.println(p);
 

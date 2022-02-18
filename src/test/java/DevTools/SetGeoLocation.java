@@ -5,22 +5,36 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SetGeoLocation {
-    public static void main(String[] args) throws InterruptedException {
+    DevTools devTools;
+    ChromeDriver driver;
+
+    @BeforeMethod
+    public void setUp() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver(); // not polymorphic way
+        driver = new ChromeDriver(); // not polymorphic way
         driver.manage().window().maximize();
-
-
-        Thread.sleep(3000);
-        DevTools chromeDevTools = driver.getDevTools();
+        devTools = driver.getDevTools();
 
         //Session of ChromeDevTool
-        chromeDevTools.createSession();
+        devTools.createSession();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
+
+    @Test
+    public void Test() {
 
         Map<String, Object> coordinates = new HashMap<String, Object>();
         coordinates.put("latitude",40);

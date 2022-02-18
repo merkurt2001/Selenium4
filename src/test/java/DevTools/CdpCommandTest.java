@@ -3,6 +3,9 @@ package DevTools;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,17 +13,28 @@ import java.util.Map;
 public class CdpCommandTest {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    DevTools devTools;
+    ChromeDriver driver;
+
+    @BeforeMethod
+    public void setUp() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver(); // not polymorphic way
+        driver = new ChromeDriver(); // not polymorphic way
         driver.manage().window().maximize();
-
-
-        Thread.sleep(3000);
-        DevTools devTools = driver.getDevTools();
+        devTools = driver.getDevTools();
 
         //Session of ChromeDevTool
         devTools.createSession();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
+
+    @Test
+    public void Test() {
 
         Map<String, Object> deviceMetrics = new HashMap<String, Object>();
         deviceMetrics.put("width",600);
