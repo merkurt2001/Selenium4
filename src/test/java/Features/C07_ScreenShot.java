@@ -25,15 +25,14 @@ public class C07_ScreenShot {
         driver = new ChromeDriver();
 
         driver.get("https://www.amazon.com");
-        Thread.sleep(3000);
 
         WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
 
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File("./tumSayfa.png"));
+        FileUtils.copyFile(scrFile, new File("./wholePage.png"));
 
         File scrFile1 = aramaKutusu.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile1, new File("./aramaKutusu.png"));
+        FileUtils.copyFile(scrFile1, new File("./searchBox.png"));
     }
 }
 
