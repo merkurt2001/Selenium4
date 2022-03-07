@@ -31,7 +31,7 @@ public class NetworkMocking {
     @AfterMethod
     public void tearDown() {
         devTools.close();
-        driver.quit();
+       // driver.quit();
     }
 
     @Test

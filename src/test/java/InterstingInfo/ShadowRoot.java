@@ -13,10 +13,10 @@ public class ShadowRoot {
         driver.get("https://letcode.in/shadow");
         Thread.sleep(2000);
 
-        String str = "return document.querySelector(\"#open-shadow\").shadowRoot.querySelector(\"#fname\")";
+        String str = "return document.querySelector(\"#open-shadow\").shadowRoot.querySelector(\"#fname\").value='nahsen'";
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector('#open-shadow').shadowRoot.querySelector('#fname').value='mustafa'", args);
+        js.executeScript(str);
 
 
 

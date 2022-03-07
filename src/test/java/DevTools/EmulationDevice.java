@@ -29,17 +29,28 @@ public class EmulationDevice {
     @AfterMethod
     public void tearDown() {
         devTools.close();
-        driver.quit();
+        //  driver.quit();
     }
 
     @Test
     public void Test() {
 
         //send commands to CDP methods--- CDP methods will invoke and get access the chrome dev tools
-        devTools.send(Emulation.setDeviceMetricsOverride(300, 600, 50, true,
-                Optional.empty(), Optional.empty(), Optional.empty(),
-                Optional.empty(), Optional.empty(), Optional.empty(),
-                Optional.empty(), Optional.empty(), Optional.empty()));
+        devTools.send(Emulation.setDeviceMetricsOverride(
+                300,
+                600,
+                50,
+                true,
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty())
+        );
 
         driver.get("https://www.amazon.com");
     }

@@ -28,17 +28,17 @@ public class SetGeoLocation {
     }
 
     @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
+//    public void tearDown() {
+//        devTools.close();
+//        driver.quit();
+//    }
 
     @Test
     public void Test() {
 
         Map<String, Object> coordinates = new HashMap<String, Object>();
         coordinates.put("latitude",40);
-        coordinates.put("longitude",3);
+        coordinates.put("longitude",4);
         coordinates.put("accuracy",1);
 
         driver.executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
@@ -47,7 +47,7 @@ public class SetGeoLocation {
         //chromeDevTools.send(Emulation.setGeolocationOverride(Optional.of(40), Optional.of(3), Optional.of(1)));
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("amazon", Keys.ENTER);
-        driver.findElements(By.cssSelector(".LC20lb")).get(0).click();
+       // driver.findElements(By.cssSelector(".LC20lb")).get(0).click();
 
     }
 }

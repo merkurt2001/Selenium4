@@ -8,12 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class C03_WebElementGet {
-    /*
-    Selenium 3’de Web Element’ler icin var olan Size, Text, Location ve Rect method’ larina ilave olarak
-    Web Element’in AccessibleName ve Aria role ozelliklerini ogrenebilecegimiz method’lar eklendi
-    ayrica Web Element’in Dom ile erisebilmeniz icin attribute’lerin Dom degeri
-    ve Dom property degerini ogrenebileceginiz method’lar da eklendi
-     */
+
     WebDriver driver;
     @Test
     public void test01() throws InterruptedException {
@@ -38,13 +33,6 @@ public class C03_WebElementGet {
         System.out.println("Tag name : " + aramaKutusu.getTagName());
         System.out.println("width : " + aramaKutusu.getAttribute("id"));
 
-        /*
-        "==========Selenium 4 de kaldirilan ozellikler==========="
-        aramaKutusu.getRect().setWidth(100);
-        aramaKutusu.getRect().setHeight(40);
-        aramaKutusu.getRect().setX(200);
-        aramaKutusu.getRect().setY(200);
-        */
 
         System.out.println("==========Selenium 4 de gelen yenilikler===========");
         System.out.println("dom attribute : " + aramaKutusu.getDomAttribute("id"));
