@@ -22,7 +22,7 @@ public class C05_TimeOuts_Duration {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));//selenium4
 
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);//selenium3
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);//selenium3
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         // WebDriverWait wait= new WebDriverWait(driver,20);

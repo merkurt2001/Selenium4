@@ -26,11 +26,11 @@ public class EmulationDevice {
         devTools.createSession();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        //  driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        devTools.close();
+//        //  driver.quit();
+//    }
 
     @Test
     public void Test() {

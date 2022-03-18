@@ -27,10 +27,10 @@ public class InterceptNetwork {
     }
 
     @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
+//    public void tearDown() {
+//        devTools.close();
+//        driver.quit();
+//    }
 
     @Test
     public void Test() {

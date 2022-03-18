@@ -5,12 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v85.emulation.Emulation;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class SetGeoLocation {
     DevTools devTools;
@@ -28,23 +30,23 @@ public class SetGeoLocation {
     }
 
     @AfterMethod
-//    public void tearDown() {
-//        devTools.close();
-//        driver.quit();
-//    }
+    public void tearDown() {
+        devTools.close();
+        driver.quit();
+    }
 
     @Test
     public void Test() {
 
         Map<String, Object> coordinates = new HashMap<String, Object>();
-        coordinates.put("latitude",40);
-        coordinates.put("longitude",4);
+        coordinates.put("latitude",24);
+        coordinates.put("longitude",42);
         coordinates.put("accuracy",1);
 
         driver.executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
 
         //send commands to CDP methods--- CDP methods will invoke and get access the chrome dev tools
-        //chromeDevTools.send(Emulation.setGeolocationOverride(Optional.of(40), Optional.of(3), Optional.of(1)));
+//        devTools.send(Emulation.setGeolocationOverride(Optional.of(40), Optional.of(-8), Optional.of(1)));
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("amazon", Keys.ENTER);
        // driver.findElements(By.cssSelector(".LC20lb")).get(0).click();
