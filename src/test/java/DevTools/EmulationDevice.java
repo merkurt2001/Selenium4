@@ -3,8 +3,8 @@ package DevTools;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v95.emulation.Emulation;
-import org.testng.annotations.AfterMethod;
+//import org.openqa.selenium.devtools.v95.emulation.Emulation;
+import org.openqa.selenium.devtools.v101.emulation.Emulation;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
