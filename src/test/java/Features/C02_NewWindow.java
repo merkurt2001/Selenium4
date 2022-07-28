@@ -15,6 +15,7 @@ public class C02_NewWindow {
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+//        driver.manage().window().maximize();
 
         driver.get("https://www.amazon.com");//go to Amazon
         Thread.sleep(3000);

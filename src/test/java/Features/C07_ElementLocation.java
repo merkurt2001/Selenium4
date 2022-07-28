@@ -26,5 +26,7 @@ public class C07_ElementLocation {
         System.out.println("Width: " + targetElement.getRect().getDimension().getWidth());
         System.out.println("X Location: " + targetElement.getRect().getX());
         System.out.println("Y Location: " + targetElement.getRect().getY());
+
+        driver.close();
     }
 }

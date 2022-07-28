@@ -14,7 +14,7 @@ public class ShadowRoot2 {
         driver.get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.BODYTYPE.hatchback&view=BODYTYPE");
         Thread.sleep(1000);
 
-        String str ="return document.querySelector('body > cmm-cookie-banner').shadowRoot.querySelector('div > div > div.cmm-cookie-banner__content > div.toggle-buttons-wrapper > div > button.wb-button.wb-button--primary.wb-button--small.wb-button--accept-all')";
+        String str ="return document.querySelector(\"body > cmm-cookie-banner\").shadowRoot.querySelector(\"div > div > div.cmm-cookie-banner__content > cmm-buttons-wrapper > div > div > button.wb-button.wb-button--primary.wb-button--small.wb-button--accept-all\")";
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         WebElement aggreeButton = (WebElement) js.executeScript(str);

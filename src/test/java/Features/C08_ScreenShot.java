@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 
-public class C07_ScreenShot {
+public class C08_ScreenShot {
 
     WebDriver driver;
 
