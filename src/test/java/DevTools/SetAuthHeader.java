@@ -1,7 +1,7 @@
 package DevTools;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.codec.binary.Base64;
+import org.bouncycastle.util.encoders.Base64;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;

@@ -12,6 +12,25 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ActionClass {
+    /*In Selenium 4, several new methods have been added to the Actions class:
+
+click(WebElement)
+This method is added to Actions class to replace the moveToElement(onElement).click().
+ It is used to click on a certain web element.
+
+clickAndHold(WebElement)
+This method will replace the moveToElement(onElement).clickAndHold().
+It is used to click on an element without releasing the click.
+
+contextClick(WebElement)
+This method will replace moveToElement(onElement).contextClick().
+It will perform the right click operation.
+
+doubleClick(WebElement)
+This method is added to replace moveToElement(element).doubleClick().
+It will perform a double click on an element.
+
+release()*/
     WebDriver driver;
 
     @BeforeMethod

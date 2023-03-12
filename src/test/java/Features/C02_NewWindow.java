@@ -13,9 +13,10 @@ public class C02_NewWindow {
     @Test
     public void test01() throws InterruptedException {
 
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
         driver.get("https://www.amazon.com");//go to Amazon
         Thread.sleep(3000);

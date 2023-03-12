@@ -40,7 +40,7 @@ public class C03_WebElementGet {
         System.out.println("accesible name: " + aramaKutusu.getAccessibleName());
         System.out.println("Aria role : " + aramaKutusu.getAriaRole());
 
-        driver.close();
+//        driver.close();
 
 
 

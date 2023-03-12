@@ -2,7 +2,6 @@ package Features;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.Test;
 
@@ -21,7 +20,7 @@ public class C06_WebDriverManager {
     public void test() {
 
         WebDriverManager.operadriver().setup();
-        driver = new OperaDriver();
+        //driver = new OperaDriver();
 
         WebDriverManager.safaridriver().setup();
         driver = new SafariDriver();

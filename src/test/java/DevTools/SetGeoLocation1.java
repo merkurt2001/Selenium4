@@ -35,8 +35,8 @@ public class SetGeoLocation1 {
     public void Test() {
 
         devTools.send(Emulation.setGeolocationOverride(
-                Optional.of(35.8235),
-                Optional.of(-78.8256),
+                Optional.of(46),
+                Optional.of(23),
                 Optional.of(100)));
         driver.get("https://my-location.org/");
     }

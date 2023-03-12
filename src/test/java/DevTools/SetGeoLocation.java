@@ -1,15 +1,11 @@
 package DevTools;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v85.emulation.Emulation;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.devtools.v107.emulation.Emulation;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.devtools.DevTools;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -29,27 +25,25 @@ public class SetGeoLocation {
         devTools.createSession();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        devTools.close();
+//        driver.quit();
+//    }
 
     @Test
-    public void Test() {
+    public void Test() throws InterruptedException {
 
         Map<String, Object> coordinates = new HashMap<String, Object>();
-        coordinates.put("latitude",24);
-        coordinates.put("longitude",42);
+        coordinates.put("latitude",40);
+        coordinates.put("longitude",-8);
         coordinates.put("accuracy",1);
 
         driver.executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
 
-        //send commands to CDP methods--- CDP methods will invoke and get access the chrome dev tools
-//        devTools.send(Emulation.setGeolocationOverride(Optional.of(40), Optional.of(-8), Optional.of(1)));
-        driver.get("https://www.google.com");
-        driver.findElement(By.name("q")).sendKeys("amazon", Keys.ENTER);
-       // driver.findElements(By.cssSelector(".LC20lb")).get(0).click();
+//        send commands to CDP methods--- CDP methods will invoke and get access the chrome dev tools
+        devTools.send(Emulation.setGeolocationOverride(Optional.of(40), Optional.of(-8), Optional.of(1)));
+        driver.get("https://my-location.org/");
 
     }
 }
