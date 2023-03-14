@@ -1,6 +1,6 @@
 package Features;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,33 +8,33 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.Driver;
 
 import java.time.Duration;
 
-public class C04_RelativeLocators {
+public class C04_RelativeLocators  {
 
-    WebDriver driver;
+
 
     @Test
-    public void test(){
-
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
+    public void test() {
 
 
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Driver.getDriver().manage().window().maximize();
 
 
-    driver.get("https://www.diemol.com/selenium-4-demo/relative-locators-demo.html");
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement boston = driver.findElement(By.id("boston"));
-        WebElement sailor = driver.findElement(By.id("sailor"));
 
-        WebElement berlin= driver.findElement(RelativeLocator.with(By.tagName("li")).above(sailor).toRightOf(boston));
-        WebElement mountie= driver.findElement(RelativeLocator.with(By.className("ui-li-aside")).below(boston));
+        Driver.getDriver().get("https://www.diemol.com/selenium-4-demo/relative-locators-demo.html");
 
-        Assert.assertEquals(berlin.getAttribute("id"),"berlin");
-        Assert.assertEquals(mountie.getText(),"Mountie");
-}
+        WebElement boston = Driver.getDriver().findElement(By.id("boston"));
+        WebElement sailor = Driver.getDriver().findElement(By.id("sailor"));
+
+        WebElement berlin = Driver.getDriver().findElement(RelativeLocator.with(By.tagName("li")).above(sailor).toRightOf(boston));
+        WebElement mountie = Driver.getDriver().findElement(RelativeLocator.with(By.className("ui-li-aside")).below(boston));
+
+        Assert.assertEquals(berlin.getAttribute("id"), "berlin");
+        Assert.assertEquals(mountie.getText(), "Mountie");
+    }
 }

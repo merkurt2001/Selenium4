@@ -5,37 +5,36 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import utilities.Driver;
 
 
 public class C02_NewWindow {
-    WebDriver driver;
 
     @Test
     public void test01() throws InterruptedException {
 
+        Driver.getDriver().manage().window().maximize();
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        driver.get("https://www.amazon.com");//go to Amazon
+        Driver.getDriver().get("https://www.amazon.com");//go to Amazon
         Thread.sleep(3000);
 
-        String firstPageHandleValue = driver.getWindowHandle();//get the handle value of the page
+        String firstPageHandleValue = Driver.getDriver().getWindowHandle();//get the handle value of the page
 
-        driver.switchTo().newWindow(WindowType.TAB).get("https://www.facebook.com");//open new TAB and go to facebook
+        Driver.getDriver().switchTo().newWindow(WindowType.TAB).get("https://www.facebook.com");//open new TAB and go to facebook
 
         Thread.sleep(3000);
 
-        driver.switchTo().window(firstPageHandleValue);//go back to previous page-Amazon
+        Driver.getDriver().switchTo().window(firstPageHandleValue);//go back to previous page-Amazon
         Thread.sleep(3000);
 
 
-        driver.switchTo().newWindow(WindowType.WINDOW).get("https://www.ebuy.com");//Open new window and go to ebuy
+        Driver.getDriver().switchTo().newWindow(WindowType.WINDOW).get("https://www.ebuy.com");//Open new window and go to ebuy
         Thread.sleep(3000);
 
-        driver.switchTo().window(firstPageHandleValue);//open Amazon page again
+        Driver.getDriver().switchTo().window(firstPageHandleValue);//open Amazon page again
         Thread.sleep(3000);
+
+        Driver.closeDriver();
 
 
 

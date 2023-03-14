@@ -1,18 +1,12 @@
 package DevTools;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
+import Base.TestBase;
 import org.openqa.selenium.devtools.v85.network.Network;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
-public class captureNetworkTraffic {
+public class captureNetworkTraffic extends TestBase {
 
     /**
      * The CDP command to start capturing the network traffic is Network.enable.
@@ -32,25 +26,6 @@ public class captureNetworkTraffic {
      * Once we are done capturing the requests, we can send the CDP command Network.disable
      * to stop capturing the network traffic as shown on line 30.
      */
-    DevTools devTools;
-    ChromeDriver driver;
-
-    @BeforeMethod
-    public void setUp() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(); // not polymorphic way
-        driver.manage().window().maximize();
-        devTools = driver.getDevTools();
-
-        //Session of ChromeDevTool
-        devTools.createSession();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
 
     @Test
     public void Test() {

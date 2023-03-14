@@ -1,9 +1,13 @@
 package InterstingInfo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import utilities.Driver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class paginationAmazon {
 
-    WebDriver driver;
+
     JavascriptExecutor js;
     List<WebElement> allElements;
     List<String> allElementsText1st = new ArrayList<>();
@@ -19,31 +23,29 @@ public class paginationAmazon {
 
     @BeforeMethod
     public void setupMethod() {
-        WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.amazon.com");
-        js = (JavascriptExecutor) driver;
+
+        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Driver.getDriver().get("https://www.amazon.com");
+        js = (JavascriptExecutor) Driver.getDriver();
     }
 
     @AfterMethod
     public void tearDownMethod() {
-        driver.close();
+        Driver.getDriver().close();
     }
 
     @Test
     public void amazonPagination1st() {
-        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        WebElement searchBox = Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
         searchBox.sendKeys("SELENIUM" + Keys.ENTER);
 
         // Create a loop which will run until the last page
         while (true) {
             try {
                 // Get whatever you want from each page
-                WebElement nextButton = driver.findElement(By.xpath("//a[.='Next']"));
+                WebElement nextButton = Driver.getDriver().findElement(By.xpath("//a[.='Next']"));
                 //locate the webelements in a list and get their text and put in another list (price in this case)
-                allElements = driver.findElements(By.xpath("//*[@id='search']//*[@class='a-price-whole']"));
+                allElements = Driver.getDriver().findElements(By.xpath("//*[@id='search']//*[@class='a-price-whole']"));
                 for (WebElement each : allElements) {
                     allElementsText1st.add(each.getText());
                 }
@@ -65,15 +67,15 @@ public class paginationAmazon {
 
     @Test
     public void amazonPagination2nd() {
-        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        WebElement searchBox = Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
         searchBox.sendKeys("SELENIUM" + Keys.ENTER);
 
         String disabled = "";
         while (!disabled.equals("true")) {
 
-            WebElement nextButton = driver.findElement(By.cssSelector(".s-pagination-item.s-pagination-next"));
+            WebElement nextButton = Driver.getDriver().findElement(By.cssSelector(".s-pagination-item.s-pagination-next"));
 
-            allElements = driver.findElements(By.xpath("//*[@id='search']//*[@class='a-price-whole']"));
+            allElements = Driver.getDriver().findElements(By.xpath("//*[@id='search']//*[@class='a-price-whole']"));
             for (WebElement each : allElements) {
                 allElementsText2nd.add(each.getText());
             }
@@ -83,7 +85,7 @@ public class paginationAmazon {
             //CLICK the next button if it is active Otherwise we will get while condition "false"
             nextButton.click();
 
-            disabled = driver.findElement(By.cssSelector(".s-pagination-item.s-pagination-next")).getAttribute("aria-disabled") + "";
+            disabled = Driver.getDriver().findElement(By.cssSelector(".s-pagination-item.s-pagination-next")).getAttribute("aria-disabled") + "";
         }
         System.out.println(allElementsText2nd);
     }

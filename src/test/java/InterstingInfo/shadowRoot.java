@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import utilities.BrowserUtils;
+import utilities.Driver;
 
 import java.time.Duration;
 
@@ -19,10 +20,10 @@ public class shadowRoot extends TestBase {
             https://www.alodokter.com/*/
 
 
-        driver.get("https://www.alodokter.com/");
+        Driver.getDriver().get("https://www.alodokter.com/");
 
         //Using JS Codes -- if you are using version lower than Selenium 4
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         //Shadow Root - Open
         String str = "document.querySelector(\"hero-view\").shadowRoot.querySelector(\"#searchSpecialities\")";
         js.executeScript(str);
@@ -44,9 +45,9 @@ public class shadowRoot extends TestBase {
            https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE */
 
 
-        driver.get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE");
+        Driver.getDriver().get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE");
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         //Shadow Root - Open
         String str = "document.querySelector(\"body > div.root.responsivegrid > div > div > div > owc-stage:nth-child(2)\").shadowRoot.querySelector(\"div > div.owc-stage__content-wrapper > div > div.owc-stage__cta-wrapper.wb-grid-row > div > div > a.owc-stage-cta-buttons__button.wb-button.wb-button--medium.wb-button--theme-dark.wb-button--large.wb-button--primary.owc-stage-cta-buttons__button--primary\").click()";
         js.executeScript(str);
@@ -62,14 +63,14 @@ public class shadowRoot extends TestBase {
           https://letcode.in/shadow */
 
 
-        driver.get("https://letcode.in/shadow");
+        Driver.getDriver().get("https://letcode.in/shadow");
         BrowserUtils.sleep(1);
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         //The first element that we would be locating is the "shadow_host" which is open-shadow  by using locator strategy – id.
-        WebElement element = driver.findElement(By.id("open-shadow"));
+        WebElement element = Driver.getDriver().findElement(By.id("open-shadow"));
 
         //Next we search for the first Shadow Root in the DOM next to it. For this, we have used the SearchContext interface.
         SearchContext shadowRoot = element.getShadowRoot();
@@ -90,13 +91,13 @@ public class shadowRoot extends TestBase {
           https://letcode.in/shadow */
 
 
-        driver.get("https://letcode.in/shadow");
+        Driver.getDriver().get("https://letcode.in/shadow");
         BrowserUtils.sleep(1);
 
         //First, we would be locating the shadow_host element by using its id, after which we would get the Shadow Root element using the getShadowRoot() method.
         //Next, We would get the Shadow Root element using the getShadowRoot() method.
         //Finally, we would sendkeys to the input box
-        WebElement openShadowElement = driver.findElement(By.id("open-shadow")).getShadowRoot().findElement(By.cssSelector("#fname"));
+        WebElement openShadowElement = Driver.getDriver().findElement(By.id("open-shadow")).getShadowRoot().findElement(By.cssSelector("#fname"));
         openShadowElement.sendKeys("max");
 
 
@@ -108,16 +109,16 @@ public class shadowRoot extends TestBase {
 
        //How to handle closed Shadow element
 
-        driver.get("https://letcode.in/shadow");
+        Driver.getDriver().get("https://letcode.in/shadow");
         BrowserUtils.sleep(1);
         //Locate the closest element which is outside closed shadow root. It could be the host element for that shadow root.
-        WebElement element = driver.findElement(By.id("close-shadow"));
+        WebElement element = Driver.getDriver().findElement(By.id("close-shadow"));
 
         //Now focus on this outside element by using click() method
         element.click();
 
         //Now use Actions class to press the TAB key to focus on the closed shadow root element.
-        Actions act = new Actions(driver);
+        Actions act = new Actions(Driver.getDriver());
         act.sendKeys(Keys.TAB).perform();
 
         //Now use Actions class to perform any action on the closed shadow dom element like sendKeys() or click() etc.

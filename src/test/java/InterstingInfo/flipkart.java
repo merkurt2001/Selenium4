@@ -1,13 +1,14 @@
 package InterstingInfo;
 
 
-import Base.TestBase;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import utilities.BrowserUtils;
+import utilities.Driver;
 
-public class flipkart extends TestBase {
+public class flipkart {
 
 
     @Test
@@ -18,15 +19,14 @@ public class flipkart extends TestBase {
         -  Go to https://www.flipkart.com/
         - Locate Wire Headphones*/
 
+        Driver.getDriver().get("https://www.flipkart.com/");
 
-        driver.get("https://www.flipkart.com/");
+        Driver.getDriver().findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
 
-        driver.findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
-
-        new Actions(driver).moveToElement(driver.findElement(By.xpath("//div[text()='Electronics']"))).perform();
+        new Actions(Driver.getDriver()).moveToElement(Driver.getDriver().findElement(By.xpath("//div[text()='Electronics']"))).perform();
         BrowserUtils.sleep(2);
 
-        driver.findElement(By.xpath("//div[@class='_3XS_gI']//a[3]")).click();
+        Driver.getDriver().findElement(By.xpath("//div[@class='_3XS_gI']//a[3]")).click();
 
 
     }
@@ -40,15 +40,15 @@ public class flipkart extends TestBase {
          - Click on the search box
          - Locate t-shirts*/
 
-        driver.get("https://www.flipkart.com/");
+        Driver.getDriver().get("https://www.flipkart.com/");
 
-        driver.findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
+        Driver.getDriver().findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
 
-        driver.findElement(By.xpath("//div[@class='_3OO5Xc']")).click();
+        Driver.getDriver().findElement(By.xpath("//div[@class='_3OO5Xc']")).click();
 
         BrowserUtils.sleep(2);
 
-        driver.findElement(By.xpath("//li[@class='Y5N33s'][4]")).click();
+        Driver.getDriver().findElement(By.xpath("//li[@class='Y5N33s'][4]")).click();
 
 
     }

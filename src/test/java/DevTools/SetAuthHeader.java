@@ -1,15 +1,10 @@
 package DevTools;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import Base.TestBase;
 import org.bouncycastle.util.encoders.Base64;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
-
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.Headers;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -25,31 +20,12 @@ import java.util.Optional;
  * you’ll see the browser popup asking you to login. But since we sent the authentication header,
  * we will not get this popup in our script.
  */
-public class SetAuthHeader {
+public class SetAuthHeader extends TestBase {
 
 
     private static final String USERNAME = "guest";
     private static final String PASSWORD = "guest";
 
-    DevTools devTools;
-    ChromeDriver driver;
-
-    @BeforeMethod
-    public void setUp() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(); // not polymorphic way
-        driver.manage().window().maximize();
-        devTools = driver.getDevTools();
-
-        //Session of ChromeDevTool
-        devTools.createSession();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
 
     @Test
     public void Test() {
@@ -75,7 +51,6 @@ public class SetAuthHeader {
             System.out.println("Login failed");
         }
 
-      //  driver.quit();
 
     }
 }

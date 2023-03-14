@@ -1,11 +1,10 @@
 package InterstingInfo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.Driver;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -13,25 +12,24 @@ import java.util.List;
 
 public class Sorting {
 
-    ChromeDriver driver;
 
     @Test
     public void performanceTest() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get("https://qa-recruitment-task.netlify.app/");
+
+
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        Driver.getDriver().get("https://qa-recruitment-task.netlify.app/");
         Thread.sleep(5);
 
 
 // sorting: alphabetically A to B
 
 
-        WebElement sortButton = driver.findElement(By.xpath("(//*[name()='svg'][@class='icon'])[3]"));
+        WebElement sortButton = Driver.getDriver().findElement(By.xpath("(//*[name()='svg'][@class='icon'])[3]"));
         sortButton.click();
 
-        List<WebElement> elements = driver.findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[2]"));
+        List<WebElement> elements = Driver.getDriver().findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[2]"));
         List<String> products = new ArrayList<>();
 
         for (WebElement product : elements) {
@@ -47,7 +45,7 @@ public class Sorting {
         sortButton.click();
         Thread.sleep(2000);
 
-        List<WebElement> elements1 = driver.findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[2]"));
+        List<WebElement> elements1 = Driver.getDriver().findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[2]"));
         List<String> products1 = new ArrayList<>();
 
         for (WebElement product : elements1) {
@@ -59,9 +57,9 @@ public class Sorting {
         }
 
 //        sorting: price from low to high
-        driver.findElement(By.xpath("(//select)[1]")).click();
-        driver.findElement(By.xpath("//option[@value='Price']")).click();
-        List<WebElement> elements2 = driver.findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[3]"));
+        Driver.getDriver().findElement(By.xpath("(//select)[1]")).click();
+        Driver.getDriver().findElement(By.xpath("//option[@value='Price']")).click();
+        List<WebElement> elements2 = Driver.getDriver().findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[3]"));
         List<Integer> products2 = new ArrayList<>();
 
         for (WebElement product : elements2) {
@@ -75,7 +73,7 @@ public class Sorting {
 
 //                sorting: price from high to low
         sortButton.click();
-        List<WebElement> elements3 = driver.findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[3]"));
+        List<WebElement> elements3 = Driver.getDriver().findElements(By.xpath("(//div[@class='style__Column-sc-4ctdae-1 jlvejm'])//p[3]"));
         List<Integer> products3 = new ArrayList<>();
 
         for (WebElement product : elements3) {

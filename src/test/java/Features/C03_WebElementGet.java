@@ -1,24 +1,20 @@
 package Features;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import utilities.Driver;
 
 public class C03_WebElementGet {
 
-    WebDriver driver;
+
     @Test
     public void test01() throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
 
-        driver.get("https://www.amazon.com");
+        Driver.getDriver().get("https://www.amazon.com");
 
-        WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
+        WebElement aramaKutusu = Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
 
         System.out.println("==========Selenium 3 de olanlar===========");
         System.out.println("yukseklik : " + aramaKutusu.getRect().getHeight());
@@ -41,8 +37,6 @@ public class C03_WebElementGet {
         System.out.println("Aria role : " + aramaKutusu.getAriaRole());
 
 //        driver.close();
-
-
 
 
     }

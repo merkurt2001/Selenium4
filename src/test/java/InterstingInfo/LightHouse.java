@@ -1,24 +1,23 @@
 package InterstingInfo;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.Driver;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LightHouse {
 
-    ChromeDriver driver;
+
 
     @Test
     public void performanceTest() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         String URL = "qa-recruitment-task.netlify.app";
 
         Map<String, Integer> lightHouseValues = getLightHouseValues(URL, "desktop", "performance", "accessibility", "best-practices", "seo");
@@ -45,10 +44,10 @@ public class LightHouse {
         }
 
         String lightHouseURL = "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2F" + URL + "%2F&" + strategy + category + "utm_source=lh-chrome-ext";
-        driver.get(lightHouseURL);
+        Driver.getDriver().get(lightHouseURL);
 
         for (String each : categories) {
-            String value = driver.findElement(By.xpath("//div[@class='lh-header-container']//a[" + categoryMap.get(each) + "]/div[2]")).getText();
+            String value = Driver.getDriver().findElement(By.xpath("//div[@class='lh-header-container']//a[" + categoryMap.get(each) + "]/div[2]")).getText();
             data.put(each, Integer.parseInt(value));
         }
 

@@ -1,40 +1,18 @@
 package DevTools;
 
+import Base.TestBase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.RequestId;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Optional;
 
-public class captureNetworkCalls {
-    DevTools devTools;
-    ChromeDriver driver;
+public class captureNetworkCalls extends TestBase {
 
-    @BeforeMethod
-    public void setUp() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(); // not polymorphic way
-        driver.manage().window().maximize();
-        devTools = driver.getDevTools();
-
-        //Session of ChromeDevTool
-        devTools.createSession();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        devTools.close();
-        driver.quit();
-    }
 
     @Test
     public void Test() {
