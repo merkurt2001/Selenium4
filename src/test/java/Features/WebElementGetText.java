@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import utilities.Driver;
 
-public class C03_WebElementGet {
+public class WebElementGetText {
 
 
     @Test
-    public void test01() throws InterruptedException {
+    public void test01()  {
 
 
         Driver.getDriver().get("https://www.amazon.com");
@@ -17,7 +17,7 @@ public class C03_WebElementGet {
         WebElement aramaKutusu = Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
 
         System.out.println("==========Selenium 3 de olanlar===========");
-        System.out.println("yukseklik : " + aramaKutusu.getRect().getHeight());
+        System.out.println("height : " + aramaKutusu.getRect().getHeight());
         System.out.println("dimension : " + aramaKutusu.getRect().getDimension());
         System.out.println("X koordinat : " + aramaKutusu.getRect().getX());
         System.out.println("Y koordinat : " + aramaKutusu.getRect().getY());
@@ -36,7 +36,7 @@ public class C03_WebElementGet {
         System.out.println("accesible name: " + aramaKutusu.getAccessibleName());
         System.out.println("Aria role : " + aramaKutusu.getAriaRole());
 
-//        driver.close();
+        Driver.getDriver().close();
 
 
     }

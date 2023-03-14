@@ -1,29 +1,29 @@
 package Features;
 
 import org.testng.annotations.Test;
+import utilities.BrowserUtils;
 import utilities.Driver;
 
-public class C01_Minimize {
+public class MinimizeTest {
 
 
     @Test
-    public void test01() throws InterruptedException {
+    public void test01() {
 
 
         Driver.getDriver().get("https://www.amazon.com"); // go to amazon
 
-        Thread.sleep(3000);
+        BrowserUtils.sleep(3);
 
         Driver.getDriver().manage().window().minimize(); // minimize
 
-        Thread.sleep(5000);
+        BrowserUtils.sleep(3);
 
         Driver.getDriver().manage().window().maximize(); // maximize
 
-        Thread.sleep(5000);
+        BrowserUtils.sleep(3);
 
         Driver.closeDriver();
-
 
 
     }

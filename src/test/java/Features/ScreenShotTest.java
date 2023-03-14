@@ -13,7 +13,7 @@ import java.io.IOException;
 
 
 
-public class C08_ScreenShot {
+public class ScreenShotTest {
 
 
     @Test
@@ -21,12 +21,12 @@ public class C08_ScreenShot {
 
         Driver.getDriver().get("https://www.amazon.com");
 
-        WebElement aramaKutusu=Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
+        WebElement searchBox=Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
 
         File scrFile = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("./wholePage.png"));
 
-        File scrFile1 = aramaKutusu.getScreenshotAs(OutputType.FILE);
+        File scrFile1 = searchBox.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile1, new File("./searchBox.png"));
     }
 }
