@@ -14,7 +14,8 @@ import java.util.Optional;
 /**
  * This poses a challenge for pop-ups such as authentication dialogs.
  * We can bypass this by using the CDP APIs to handle the authentication directly with DevTools.
- * we send the setExtraHTTPHeaders command to send() along with the data for the header. This is the part that will authenticate us and allow us to bypass the browser popup.
+ * we send the setExtraHTTPHeaders command to send() along with the data for the header.
+ * This is the part that will authenticate us and allow us to bypass the browser popup.
  *
  * To test this out, we then click the Basic Authentication test link. If you try this manually,
  * you’ll see the browser popup asking you to login. But since we sent the authentication header,

@@ -22,10 +22,10 @@ import java.time.Duration;
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options);
+            driver = new ChromeDriver(options); // not in polymorphic way
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            devTools = driver.getDevTools();
+            devTools = driver.getDevTools(); //devtool obj
 
             //Session of ChromeDevTool
             devTools.createSession();
@@ -37,7 +37,7 @@ import java.time.Duration;
         public void teardownMethod() {
             BrowserUtils.sleep(3);
 
-            driver.close();
+            //driver.close();
         }
 
 

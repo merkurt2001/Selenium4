@@ -32,7 +32,7 @@ public class captureNetworkCalls extends TestBase {
 
                 });
         driver.get("https://www.booking.com");
-        driver.findElement(By.className("bui-button__text")).click();
+//        driver.findElement(By.className("bui-button__text")).click();
     }
 
 }

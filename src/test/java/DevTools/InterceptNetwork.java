@@ -18,7 +18,6 @@ public class InterceptNetwork extends TestBase {
         //set blocked URL patterns
         devTools.send(Network.setBlockedURLs(ImmutableList.of("*.css", "*.jpg")));
 
-
         driver.get("https://amazon.com");
     }
 }

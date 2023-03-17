@@ -13,7 +13,8 @@ public class SetNetwork extends TestBase {
     @Test
     public void Test() {
 
-        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(),
+                Optional.empty()));
         devTools.send(Network.emulateNetworkConditions(
                 false,
                 20,
