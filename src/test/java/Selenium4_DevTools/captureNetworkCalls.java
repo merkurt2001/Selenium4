@@ -1,10 +1,9 @@
-package DevTools;
+package Selenium4_DevTools;
 
 import Base.TestBase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
-import org.openqa.selenium.By;
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.RequestId;
 import org.testng.annotations.Test;

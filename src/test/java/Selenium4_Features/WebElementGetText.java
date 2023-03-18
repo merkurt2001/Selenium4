@@ -1,4 +1,4 @@
-package Features;
+package Selenium4_Features;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package DevTools;
+package Selenium4_DevTools;
 
 import Base.TestBase;
 import com.google.common.collect.ImmutableList;

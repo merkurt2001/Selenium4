@@ -1,4 +1,4 @@
-package DevTools;
+package Selenium4_DevTools;
 
 import Base.TestBase;
 import org.openqa.selenium.devtools.v85.network.Network;

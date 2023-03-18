@@ -27,6 +27,10 @@ public class ExcelUtilsDemo {
         //get all column names
         System.out.println("qa3short.getColumnsNames() = " + qa3short.getColumnsNames());
 
+        System.out.println("get cell data " + qa3short.getCellData(2,3));
+
+        System.out.println("qa3short.getDataArrayWithoutFirstRow() = " + Arrays.deepToString(qa3short.getDataArrayWithoutFirstRow()));
+
         //get all data in list of maps
         List<Map<String, String>> dataList = qa3short.getDataList();
         for (Map<String, String> onerow : dataList) {
@@ -44,6 +48,8 @@ public class ExcelUtilsDemo {
 
         //print 2d array
         System.out.println(Arrays.deepToString(dataArray));
+
+        qa3short.setCellData("Max" , 3 ,3);
 
     }
 }

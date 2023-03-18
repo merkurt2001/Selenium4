@@ -1,4 +1,4 @@
-package Features;
+package Selenium4_Features;
 
 import org.testng.annotations.Test;
 import utilities.BrowserUtils;

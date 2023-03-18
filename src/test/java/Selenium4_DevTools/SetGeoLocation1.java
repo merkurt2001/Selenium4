@@ -1,12 +1,10 @@
-package DevTools;
+package Selenium4_DevTools;
 
 import Base.TestBase;
-import org.openqa.selenium.devtools.v85.emulation.Emulation;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class SetGeoLocation1 extends TestBase {
 
