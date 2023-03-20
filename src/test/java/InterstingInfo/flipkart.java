@@ -8,7 +8,9 @@ import org.testng.annotations.Test;
 import utilities.BrowserUtils;
 import utilities.Driver;
 
+
 public class flipkart {
+
 
 
     @Test
@@ -19,14 +21,17 @@ public class flipkart {
         -  Go to https://www.flipkart.com/
         - Locate Wire Headphones*/
 
+
+
         Driver.getDriver().get("https://www.flipkart.com/");
 
         Driver.getDriver().findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
-
+        BrowserUtils.sleep(10);
         new Actions(Driver.getDriver()).moveToElement(Driver.getDriver().findElement(By.xpath("//div[text()='Electronics']"))).perform();
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(10);
 
         Driver.getDriver().findElement(By.xpath("//div[@class='_3XS_gI']//a[3]")).click();
+
 
 
     }

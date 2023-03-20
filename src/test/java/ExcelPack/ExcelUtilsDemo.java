@@ -1,5 +1,7 @@
 package ExcelPack;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 import utilities.ExcelUtil;
 
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ExcelUtilsDemo {
+
+    public Logger log = LogManager.getLogger(this.getClass());
     @Test
     public void readExcelFile(){
 
@@ -15,6 +19,8 @@ public class ExcelUtilsDemo {
         //it accepts two argument
         //Argument 1: location of the file(path)
         //Argument 2: sheet that wew want to open(sheetName)
+
+        log.error("error may happaned"); //log test
 
         ExcelUtil qa3short = new ExcelUtil("Vytracktestdata.xlsx","QA3-short");
 
