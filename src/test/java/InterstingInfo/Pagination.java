@@ -11,7 +11,7 @@ import java.time.Duration;
 public class Pagination {
 
     @Test
-    public void performanceTest() throws InterruptedException {
+    public void paginationTest() throws InterruptedException {
 
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -22,9 +22,9 @@ public class Pagination {
         WebElement previousButton = Driver.getDriver().findElement(By.xpath("(//*[name()='svg'][@class='icon'])[15]"));
 
         while (true) {
-            BrowserUtils.sleep(1);
-            nextButton.click();
 
+            nextButton.click();
+            BrowserUtils.sleep(1);
             String isLastPage = Driver.getDriver().findElement(By.xpath("//li[starts-with(@class,\"PaginationIndicatorstyle__Li\")][last()]")).getAttribute("disabled");
 
             if (isLastPage == null) {
@@ -36,9 +36,9 @@ public class Pagination {
         }
 
         while (true) {
-            BrowserUtils.sleep(1);
-            previousButton.click();
 
+            previousButton.click();
+            BrowserUtils.sleep(1);
             String isFirstPage = Driver.getDriver().findElement(By.xpath("//li[starts-with(@class,\"PaginationIndicatorstyle__Li\")][1]")).getAttribute("disabled");
 
             if (isFirstPage == null) {

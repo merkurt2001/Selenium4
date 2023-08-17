@@ -83,38 +83,21 @@ public class robotClassDemo {
         // Press keys using robot. A gap of
         // of 500 milli seconds is added after
         // every key press
-        robot.mouseMove(100, 100);
-        Thread.sleep(500);
-        robot.mouseMove(300, 300);
-        Thread.sleep(500);
-        robot.mouseMove(500, 500);
-        Thread.sleep(500);
+
         robot.keyPress(KeyEvent.VK_H);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_E);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_L);
-        Thread.sleep(500);
+        robot.keyRelease(KeyEvent.VK_L);
         robot.keyPress(KeyEvent.VK_L);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_O);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_SPACE);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_F);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_R);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_O);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_M);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_SPACE);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_M);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_A);
-        Thread.sleep(500);
         robot.keyPress(KeyEvent.VK_X);
 
 
