@@ -7,6 +7,8 @@ import utilities.BrowserUtils;
 import utilities.Driver;
 import utilities.ERPUtil;
 
+
+/*click one of the webelement according to it location (if you can not locate)*/
 public class ERP {
 
     @Test

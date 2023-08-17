@@ -12,6 +12,7 @@ public class ERPUtil {
         String x = xCoordinate.toString();
         Integer xOffset=Integer.parseInt(x.substring(1,x.indexOf(",")));
         System.out.println(x);
+        System.out.println(xOffset);
 
         // Find Y Coordinate
         Point yCoordinate = Driver.getDriver().findElement(By.xpath("//span[normalize-space()='"+hour+"']")).getLocation();
