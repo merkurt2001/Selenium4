@@ -1,7 +1,8 @@
 package Selenium4_DevTools;
 
 import Base.TestBase;
-import org.openqa.selenium.devtools.v107.emulation.Emulation;
+
+import org.openqa.selenium.devtools.v113.emulation.Emulation;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
