@@ -1,7 +1,6 @@
 package Base;
 
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
@@ -21,7 +20,7 @@ import java.time.Duration;
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
-            WebDriverManager.chromedriver().setup();
+//            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options); // not in polymorphic way
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

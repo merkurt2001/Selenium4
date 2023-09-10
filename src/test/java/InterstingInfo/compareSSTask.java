@@ -1,11 +1,7 @@
 package InterstingInfo;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.builder.Diff;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.annotations.Test;
 import utilities.BrowserUtils;
 import utilities.Driver;
@@ -14,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class AylinTask {
+public class compareSSTask {
 
     static int a=1;
     String globalFilePath1;
@@ -47,8 +43,9 @@ public class AylinTask {
         Driver.getDriver().findElement(By.id("L2AGLb")).click();
         BrowserUtils.sleep(2);
 
-        Driver.getDriver().findElement(By.xpath("//*[@id=\"APjFqb\"]")).sendKeys("java");
+        Driver.getDriver().findElement(By.xpath("//*[@id=\"APjFqb\"]")).sendKeys("java", Keys.ENTER);
 
+BrowserUtils.sleep(2);
 
         File scrFile = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.FILE);
 
