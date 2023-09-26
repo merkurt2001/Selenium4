@@ -1,12 +1,13 @@
 package InterstingInfo;
 
+import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 import utilities.Driver;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class paginationAmazon {
     List<String> allElementsText1st = new ArrayList<>();
     List<String> allElementsText2nd = new ArrayList<>();
 
-    @BeforeMethod
+    @BeforeEach
     public void setupMethod() {
 
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -29,7 +30,7 @@ public class paginationAmazon {
         js = (JavascriptExecutor) Driver.getDriver();
     }
 
-    @AfterMethod
+    @AfterEach
     public void tearDownMethod() {
         Driver.getDriver().close();
     }

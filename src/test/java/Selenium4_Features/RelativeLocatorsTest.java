@@ -1,11 +1,12 @@
 package Selenium4_Features;
 
 
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 import utilities.Driver;
 
 import java.time.Duration;
@@ -32,7 +33,7 @@ public class RelativeLocatorsTest {
         WebElement berlin = Driver.getDriver().findElement(RelativeLocator.with(By.tagName("li")).above(sailor).toRightOf(boston));
         WebElement mountie = Driver.getDriver().findElement(RelativeLocator.with(By.className("ui-li-aside")).below(boston));
 
-        Assert.assertEquals(berlin.getAttribute("id"), "berlin");
-        Assert.assertEquals(mountie.getText(), "Mountie");
+        Assertions.assertEquals(berlin.getAttribute("id"), "berlin");
+        Assertions.assertEquals(mountie.getText(), "Mountie");
     }
 }

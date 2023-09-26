@@ -1,9 +1,9 @@
 package InterstingInfo;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 import utilities.Driver;
 
 import java.time.Duration;
@@ -37,7 +37,7 @@ public class Sorting {
         }
 
         for (int i = 0; i < products.size() - 1; i++) {
-            Assert.assertTrue(products.get(i).charAt(0) <= products.get(i + 1).charAt(0));
+            Assertions.assertTrue(products.get(i).charAt(0) <= products.get(i + 1).charAt(0));
 
         }
 // sorting: alphabetically A to B
@@ -52,7 +52,7 @@ public class Sorting {
             products1.add(product.getText());
         }
         for (int i = 0; i < products1.size() - 1; i++) {
-            Assert.assertTrue(products1.get(i).charAt(0) >= products1.get(i + 1).charAt(0));
+            Assertions.assertTrue(products1.get(i).charAt(0) >= products1.get(i + 1).charAt(0));
 
         }
 
@@ -67,7 +67,7 @@ public class Sorting {
         }
 
         for (int i = 0; i < products2.size() - 1; i++) {
-            Assert.assertTrue(products2.get(i) >= products2.get(i + 1));
+            Assertions.assertTrue(products2.get(i) >= products2.get(i + 1));
 
         }
 
@@ -81,7 +81,7 @@ public class Sorting {
         }
 
         for (int i = 0; i < products3.size() - 1; i++) {
-            Assert.assertTrue(products3.get(i) <= products3.get(i + 1));
+            Assertions.assertTrue(products3.get(i) <= products3.get(i + 1));
 
         }
 

@@ -1,8 +1,9 @@
 package RobotClassDemo;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import utilities.RobotUtils;
 
 import java.awt.event.KeyEvent;
@@ -18,14 +19,14 @@ public class robotUtilityDemo {
     @Test
     public void defaultAutoDelay() {
         int expectedAutoDelay = 50;
-        Assert.assertEquals(RobotUtils.getAutoDelay(), expectedAutoDelay, "Verify default autoDelay");
+        Assertions.assertEquals(RobotUtils.getAutoDelay(), expectedAutoDelay, "Verify default autoDelay");
     }
 
     @Test
     public void customAutoDelay() {
         int expectedAutoDelay = 100;
         RobotUtils.setAutoDelay(expectedAutoDelay);
-        Assert.assertEquals(RobotUtils.getAutoDelay(), expectedAutoDelay, "Verify that autoDelay is changed");
+        Assertions.assertEquals(RobotUtils.getAutoDelay(), expectedAutoDelay, "Verify that autoDelay is changed");
     }
 
     @Test
@@ -48,7 +49,7 @@ public class robotUtilityDemo {
         RobotUtils.sendMouseKeys(MouseEvent.BUTTON3_DOWN_MASK);
     }
 
-    @BeforeMethod
+    @BeforeEach
     public void setDefaultRobot() {
         RobotUtils.clearCustomRobot();
     }

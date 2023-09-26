@@ -3,8 +3,9 @@ package Selenium4_DevTools;
 import Base.TestBase;
 
 
+import org.junit.Test;
 import org.openqa.selenium.devtools.v114.emulation.Emulation;
-import org.testng.annotations.Test;
+
 
 import java.util.Optional;
 

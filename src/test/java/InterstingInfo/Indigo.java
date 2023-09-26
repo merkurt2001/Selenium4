@@ -1,20 +1,21 @@
 package InterstingInfo;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 import utilities.Driver;
 
 public class Indigo {
 
     String name="abdullah";
 
-    @BeforeMethod
+    @BeforeEach
     public void setUp() throws InterruptedException {
 
 
@@ -35,12 +36,12 @@ public class Indigo {
         Thread.sleep(2000);
     }
 
-    @AfterMethod
+    @AfterEach
     public void tearDown() {
         Driver.getDriver().quit();
     }
 
-    @Test(priority = 1)
+    @Test
     public void profileTest() throws InterruptedException {
 
         WebElement addIcon = Driver.getDriver().findElement(By.cssSelector("#insertButton"));
@@ -75,7 +76,7 @@ public class Indigo {
 
     }
 
-    @Test(priority = 2)
+    @Test
     public void rateTest() throws InterruptedException {
 
         Driver.getDriver().findElement(By.xpath("//div[contains(text(),'"+name+"')]/parent::*/../div")).click();
@@ -127,7 +128,7 @@ public class Indigo {
 
     }
 
-    @Test(priority = 3)
+    @Test
     public void editTest() throws InterruptedException {
 
         Driver.getDriver().findElement(By.xpath("//div[contains(text(),'"+name+"')]/parent::*/../div")).click();
@@ -177,7 +178,7 @@ public class Indigo {
         saveButton.click();
     }
 
-    @Test(priority = 4)
+    @Test
     public void deleteTest() throws InterruptedException {
         Thread.sleep(1000);
 

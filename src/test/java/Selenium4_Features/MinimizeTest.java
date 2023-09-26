@@ -1,6 +1,7 @@
 package Selenium4_Features;
 
-import org.testng.annotations.Test;
+
+import org.junit.Test;
 import utilities.BrowserUtils;
 import utilities.Driver;
 

@@ -2,9 +2,9 @@ package InterstingInfo;
 
 
 import Base.TestBase;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
 import utilities.BrowserUtils;
 import utilities.Driver;
 

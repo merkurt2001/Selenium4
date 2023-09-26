@@ -1,8 +1,9 @@
 package Selenium4_DevTools;
 
 import Base.TestBase;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.devtools.v85.log.Log;
-import org.testng.annotations.Test;
+
 
 public class captureConsoleLogs extends TestBase {
     /**

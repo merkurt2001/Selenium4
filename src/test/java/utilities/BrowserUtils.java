@@ -1,10 +1,11 @@
 package utilities;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.util.Set;
@@ -45,14 +46,14 @@ public class BrowserUtils {
 
         //5. Assert:Title contains “Etsy”
         String actualTitle = driver.getTitle();
-        Assert.assertTrue(actualTitle.contains(expectedInTitle));
+        Assertions.assertTrue(actualTitle.contains(expectedInTitle));
     }
 
     public static void verifyTitle(WebDriver driver, String expectedTitle){
-        Assert.assertEquals(driver.getTitle(), expectedTitle);
+        Assertions.assertEquals(driver.getTitle(), expectedTitle);
     }
     public static void verifyTitleContains(WebDriver driver, String expectedInTitle){
-        Assert.assertTrue(driver.getTitle().contains(expectedInTitle));
+        Assertions.assertTrue(driver.getTitle().contains(expectedInTitle));
     }
 
     /*

@@ -3,7 +3,8 @@ package utilities;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,7 +27,7 @@ public class ExcelUtil {
             workBook = new XSSFWorkbook(ExcelFile);
             workSheet = workBook.getSheet(sheetName);
             // check if sheet is null or not. null means  sheetname was wrong
-            Assert.assertNotNull(workSheet, "Sheet: \"" + sheetName + "\" does not exist\n");
+            Assertions.assertNotNull(workSheet, "Sheet: \"" + sheetName + "\" does not exist\n");
 
         } catch (Exception e) {
             throw new RuntimeException(e);

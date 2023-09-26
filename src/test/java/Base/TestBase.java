@@ -1,11 +1,11 @@
 package Base;
 
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import utilities.BrowserUtils;
 
 import java.time.Duration;
@@ -15,7 +15,7 @@ import java.time.Duration;
 
         public static DevTools devTools;
         public static ChromeDriver driver;
-        @BeforeMethod
+        @BeforeEach
         public void setUpMethod() {
 
             ChromeOptions options = new ChromeOptions();
@@ -32,7 +32,7 @@ import java.time.Duration;
 
         }
 
-        @AfterMethod
+        @AfterEach
         public void teardownMethod() {
             BrowserUtils.sleep(3);
 

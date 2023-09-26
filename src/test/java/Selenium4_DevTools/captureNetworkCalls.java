@@ -4,9 +4,10 @@ import Base.TestBase;
 
 import io.cucumber.core.internal.gherkin.deps.com.google.gson.Gson;
 import io.cucumber.core.internal.gherkin.deps.com.google.gson.GsonBuilder;
+import org.junit.Test;
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.RequestId;
-import org.testng.annotations.Test;
+
 
 import java.util.Optional;
 

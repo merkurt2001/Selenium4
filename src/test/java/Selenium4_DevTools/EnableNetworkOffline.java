@@ -1,15 +1,17 @@
 package Selenium4_DevTools;
 
 import Base.TestBase;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.devtools.v85.network.Network;
 import org.openqa.selenium.devtools.v85.network.model.ConnectionType;
-import org.testng.annotations.Test;
+
 
 import java.util.Optional;
 
 import static org.openqa.selenium.devtools.v85.network.Network.emulateNetworkConditions;
 import static org.openqa.selenium.devtools.v85.network.Network.loadingFailed;
-import static org.testng.AssertJUnit.assertEquals;
+
 
 public class EnableNetworkOffline extends TestBase {
 
@@ -23,7 +25,7 @@ public class EnableNetworkOffline extends TestBase {
         devTools.send(emulateNetworkConditions(true, 100, 1000, 2000,
                 Optional.of(ConnectionType.CELLULAR3G)));
 
-        devTools.addListener(loadingFailed(), loadingFailed -> assertEquals(loadingFailed.getErrorText(), "net::ERR_INTERNET_DISCONNECTED"));
+        devTools.addListener(loadingFailed(), loadingFailed -> Assertions.assertEquals(loadingFailed.getErrorText(), "net::ERR_INTERNET_DISCONNECTED"));
 
         driver.get("https://amazon.com");
 

@@ -1,8 +1,9 @@
 package InterstingInfo;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 import utilities.Driver;
 
 import java.time.Duration;
@@ -22,7 +23,7 @@ public class LightHouse {
 
         Map<String, Integer> lightHouseValues = getLightHouseValues(URL, "desktop", "performance", "accessibility", "best-practices", "seo");
         System.out.println(lightHouseValues);
-        Assert.assertTrue(lightHouseValues.get("performance") >= 90);
+        Assertions.assertTrue(lightHouseValues.get("performance") >= 90);
 
     }
 

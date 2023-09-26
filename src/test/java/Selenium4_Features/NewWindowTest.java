@@ -1,7 +1,7 @@
 package Selenium4_Features;
 
+import org.junit.Test;
 import org.openqa.selenium.WindowType;
-import org.testng.annotations.Test;
 import utilities.BrowserUtils;
 import utilities.Driver;
 

@@ -1,9 +1,10 @@
 package Selenium4_DevTools;
 
 import Base.TestBase;
+import org.junit.Test;
 import org.openqa.selenium.devtools.v85.performance.Performance;
 import org.openqa.selenium.devtools.v85.performance.model.Metric;
-import org.testng.annotations.Test;
+
 
 import java.util.Arrays;
 import java.util.List;

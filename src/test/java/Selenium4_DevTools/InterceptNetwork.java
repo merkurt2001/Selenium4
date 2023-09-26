@@ -2,8 +2,9 @@ package Selenium4_DevTools;
 
 import Base.TestBase;
 import com.google.common.collect.ImmutableList;
+import org.junit.Test;
 import org.openqa.selenium.devtools.v85.network.Network;
-import org.testng.annotations.Test;
+
 
 import java.util.Optional;
 

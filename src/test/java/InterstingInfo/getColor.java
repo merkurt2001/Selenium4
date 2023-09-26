@@ -1,9 +1,10 @@
 package InterstingInfo;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-import org.testng.Assert;
+
 import utilities.Driver;
 
 public class getColor {
@@ -21,7 +22,7 @@ public class getColor {
         System.out.println("cssValueDefault = " + cssValueDefault);
         String asHexDefault = Color.fromString(cssValueDefault).asHex();
         System.out.println("asHexDefault = " + asHexDefault);
-        Assert.assertEquals(asHexDefault, "#039be5");
+        Assertions.assertEquals(asHexDefault, "#039be5");
         Thread.sleep(2000);
 
         //Change the color to Yellow and check the Contacts color is Yellow
@@ -30,7 +31,7 @@ public class getColor {
         System.out.println("cssValueYellow = " + cssValueYellow);
         String asHexYellow = Color.fromString(cssValueYellow).asHex();
         System.out.println("asHexYellow = " + asHexYellow);
-        Assert.assertEquals(asHexYellow, "#fdd835");
+        Assertions.assertEquals(asHexYellow, "#fdd835");
         Thread.sleep(2000);
 
         //Change the color to Black and check the Contacts color is Black
@@ -39,7 +40,7 @@ public class getColor {
         System.out.println("cssValueBlack = " + cssValueBlack);
         String asHexBlack = Color.fromString(cssValueBlack).asHex();
         System.out.println("asHexBlack = " + asHexBlack);
-        Assert.assertEquals(asHexBlack, "#607d8b");
+        Assertions.assertEquals(asHexBlack, "#607d8b");
         Thread.sleep(2000);
 
         //Change the color to Pink and check the Contacts color is Pink
@@ -48,7 +49,7 @@ public class getColor {
         System.out.println("cssValuePink = " + cssValuePink);
         String asHexPink = Color.fromString(cssValuePink).asHex();
         System.out.println("asHexPink = " + asHexPink);
-        Assert.assertEquals(asHexPink, "#e91e63");
+        Assertions.assertEquals(asHexPink, "#e91e63");
 
 
     }

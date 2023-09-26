@@ -1,8 +1,9 @@
 package InterstingInfo;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
-import org.testng.annotations.Test;
+
 import utilities.BrowserUtils;
 import utilities.Driver;
 
