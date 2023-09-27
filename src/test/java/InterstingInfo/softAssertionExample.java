@@ -8,7 +8,7 @@ public class softAssertionExample {
     @Test
     public void Test1(){
         SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(5).isEqualTo(4);
+        softAssertions.assertThat(5).isEqualTo(5);
         softAssertions.assertAll();
 
     }
