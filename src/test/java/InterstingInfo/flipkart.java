@@ -54,5 +54,16 @@ public class flipkart {
 
     }
 
+    @Test
+    public void challenge3() {
+
+
+        Driver.getDriver().get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE");
+
+        Driver.getDriver().findElement(By.xpath("//owc-stage[@class='webcomponent aem-GridColumn aem-GridColumn--default--12 owc-image-stage-host']")).getShadowRoot().findElement(By.cssSelector(".owc-stage-cta-buttons__button.wb-button.wb-button--medium.wb-button--large.wb-button--primary.owc-stage-cta-buttons__button--primary")).click();
+
+
+    }
+
 
 }
