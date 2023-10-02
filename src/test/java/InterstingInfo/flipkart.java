@@ -24,12 +24,9 @@ public class flipkart {
 
         Driver.getDriver().get("https://www.flipkart.com/");
 
-        Driver.getDriver().findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
-        BrowserUtils.sleep(10);
-        new Actions(Driver.getDriver()).moveToElement(Driver.getDriver().findElement(By.xpath("//div[text()='Electronics']"))).perform();
-        BrowserUtils.sleep(10);
-
-        Driver.getDriver().findElement(By.xpath("//div[@class='_3XS_gI']//a[3]")).click();
+        Driver.getDriver().findElement(By.xpath("//span[@role='button']")).click();
+        new Actions(Driver.getDriver()).moveToElement(Driver.getDriver().findElement(By.xpath("//div[@aria-label='Electronics']"))).perform();
+        Driver.getDriver().findElement(By.xpath("//a[.='Wired Headphones']")).click();
 
 
 
@@ -46,13 +43,13 @@ public class flipkart {
 
         Driver.getDriver().get("https://www.flipkart.com/");
 
-        Driver.getDriver().findElement(By.xpath("//div//button[@class='_2KpZ6l _2doB4z']")).click();
+        Driver.getDriver().findElement(By.xpath("//span[@role='button']")).click();
 
-        Driver.getDriver().findElement(By.xpath("//div[@class='_3OO5Xc']")).click();
+        Driver.getDriver().findElement(By.xpath("//input[@class='Pke_EE']")).click();
 
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
-        Driver.getDriver().findElement(By.xpath("//li[@class='Y5N33s'][4]")).click();
+        Driver.getDriver().findElement(By.xpath("(//div[@class='YGcVZO'])[3]")).click();
 
 
     }
