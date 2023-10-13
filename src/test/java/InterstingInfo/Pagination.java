@@ -18,8 +18,8 @@ public class Pagination {
         Driver.getDriver().get("https://qa-recruitment-task.netlify.app/");
 
 
-        WebElement nextButton = Driver.getDriver().findElement(By.xpath("(//*[name()='svg'][@class='icon'])[16]"));
-        WebElement previousButton = Driver.getDriver().findElement(By.xpath("(//*[name()='svg'][@class='icon'])[15]"));
+        WebElement nextButton = Driver.getDriver().findElement(By.xpath("((//ol)[2]/li)[8]")); //(//*[name()='svg'][@class='icon'])[16]
+        WebElement previousButton = Driver.getDriver().findElement(By.xpath("((//ol)[2]/li)[1]"));  //(//*[name()='svg'][@class='icon'])[15]
 
         while (true) {
 
@@ -78,6 +78,8 @@ public class Pagination {
                 break;
             }
         }
+
+        BrowserUtils.sleep(1);
 
         WebElement backPaginationIcon = Driver.getDriver().findElement(By.xpath("(//li[@class='PaginationIndicatorstyle__Li-urm45v-1 jpDQtp'])[1]"));
 

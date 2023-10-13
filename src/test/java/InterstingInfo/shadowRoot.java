@@ -47,10 +47,13 @@ public class shadowRoot extends TestBase {
 
         Driver.getDriver().get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE");
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        //JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        BrowserUtils.sleep(3);
         //Shadow Root - Open
-        String str = "document.querySelector(\"body > div.root.responsivegrid > div > div > div > owc-stage:nth-child(2)\").shadowRoot.querySelector(\"div > div.owc-stage__content-wrapper > div > div.owc-stage__cta-wrapper.wb-grid-row > div > div > a.owc-stage-cta-buttons__button.wb-button.wb-button--medium.wb-button--theme-dark.wb-button--large.wb-button--primary.owc-stage-cta-buttons__button--primary\").click()";
-        js.executeScript(str);
+        //String str = "document.querySelector(\"body > cmm-cookie-banner\").shadowRoot.querySelector(\"div > div > div.cmm-cookie-banner__content > cmm-buttons-wrapper > div > div > wb7-button.button.button--accept-all.wb-button.hydrated\").click()";
+        //js.executeScript(str);
+
+        Driver.getDriver().findElement(By.cssSelector("body > cmm-cookie-banner")).getShadowRoot().findElement(By.cssSelector("div > wb7-button.button.button--accept-all.wb-button.hydrated")).click();
 
 
     }
