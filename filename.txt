@@ -1,2 +1,30 @@
-[key111][apple]
-[key1211][orange]
+apple = red
+banana = yellow
+cherry = red
+date = brown
+elderberry = purple
+fig = green
+grape = purple
+honeydew = green
+kiwi = brown
+lemon = yellow
+mango = orange
+nectarine = orange
+orange = orange
+pear = green
+quince = yellow
+raspberry = red
+strawberry = red
+tangerine = orange
+ugli fruit = green
+watermelon = green
+blueberry = green
+blackberry = blue
+cranberry = black
+grapefruit = red
+guava = red
+lime = green
+papaya = green
+pineapple = green
+pomegranate = yellow
+apple = red

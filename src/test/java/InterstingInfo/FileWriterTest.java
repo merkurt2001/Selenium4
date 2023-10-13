@@ -5,18 +5,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class FileWriter1 {
+public class FileWriterTest {
 
     public static void main(String[] args) {
 
-        Map<String, String> firstPageKeysValues = new LinkedHashMap<>();
-        firstPageKeysValues.put("key111" , "apple");
-        Map<String, String> secongPageKeysValues = new LinkedHashMap<>();
-        secongPageKeysValues.put("key1211" , "orange");
+        String[] keys1 = {"apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon", "mango", "nectarine",
+                "orange", "pear", "quince", "raspberry", "strawberry", "tangerine", "ugli fruit", "watermelon", "blueberry", "blackberry",
+                "cranberry", "grapefruit", "guava", "lime", "papaya", "pineapple", "pomegranate" , "apple"};
+        String[] values1 = {"red", "yellow", "red", "brown", "purple", "green", "purple", "green", "brown", "yellow", "orange",
+                "orange", "orange", "green", "yellow", "red", "red", "orange", "green", "green", "green", "blue", "black", "red",
+                "red", "green", "green", "green", "yellow", "red"};
+
+
 
         List<Map<String, String>> missingKeysAndValuesList = new LinkedList<>();
-        missingKeysAndValuesList.add(firstPageKeysValues);
-        missingKeysAndValuesList.add(secongPageKeysValues);
+
+        for (int i = 0; i < values1.length; i++) {
+            Map<String, String> keysValues = new LinkedHashMap<>();
+            keysValues.put(keys1[i] , values1 [i]);
+            missingKeysAndValuesList.add(keysValues);
+
+        }
+
 
         missingKeyWriter(missingKeysAndValuesList);
 
@@ -36,8 +46,9 @@ public class FileWriter1 {
 
             // Write each item from the list to the file
             for (Map<String, String> stringStringMap : itemList) {
-                bufferedWriter.write(stringStringMap.keySet().toString());
-                bufferedWriter.write(stringStringMap.values().toString());
+                String key= stringStringMap.keySet().toString();
+                String value = stringStringMap.values().toString();
+                bufferedWriter.write(key.substring(1 ,key.length()-1) + " = " + value.substring(1 ,value.length()-1));
                 bufferedWriter.newLine(); // Add a new line for each item
             }
 
