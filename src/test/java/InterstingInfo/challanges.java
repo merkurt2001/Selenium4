@@ -62,9 +62,10 @@ public class challanges {
 https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE*/
 
 
-        Driver.getDriver().get("https://www.mercedes-benz.co.uk/passengercars.html?group=all&subgroup=all.hatchback&view=BODYTYPE");
+        Driver.getDriver().get("https://www.abcmouse.com/abc/");
 
-        Driver.getDriver().findElement(By.cssSelector(".webcomponent.aem-GridColumn.aem-GridColumn--default--12.owc-image-stage-host")).getShadowRoot().findElement(By.cssSelector(".owc-stage-cta-buttons__button.wb-button.wb-button--medium.wb-button--large.wb-button--primary.owc-stage-cta-buttons__button--primary")).click();
+        Driver.getDriver().findElement(By.cssSelector("body > route-view")).getShadowRoot().findElement(By.cssSelector("#page-component")).getShadowRoot().findElement(By.cssSelector("main-layout > header > home-header > authstate-context:nth-child(1) > login-button > link-to")).click();
+
 
 
     }
